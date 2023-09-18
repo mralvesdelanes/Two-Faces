@@ -1025,9 +1025,9 @@ GameObject:
   - component: {fileID: 9003542279025241340}
   - component: {fileID: 8653200978417483053}
   - component: {fileID: 5017004257195823850}
-  - component: {fileID: 4596651614571581215}
   - component: {fileID: 4975054468388775085}
   - component: {fileID: 5934775104030529422}
+  - component: {fileID: 6621224625062147903}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Untagged
@@ -1059,7 +1059,7 @@ Transform:
   - {fileID: 4038725036859859954}
   - {fileID: 5079401565223795202}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &8653200978417483053
 Animator:
@@ -1097,56 +1097,6 @@ MonoBehaviour:
   walkSpeed: 3
   runningSpeed: 5
   rotateSpeed: 150
---- !u!114 &4596651614571581215
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4243186850961492629}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d528de9b46efcb54bbb040d7119c3ee2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  xAxis:
-    Value: 0
-    m_SpeedMode: 0
-    m_MaxSpeed: 200
-    m_AccelTime: 0.1
-    m_DecelTime: 0.1
-    m_InputAxisName: 
-    m_InputAxisValue: 0
-    m_InvertInput: 0
-    m_MinValue: -180
-    m_MaxValue: 180
-    m_Wrap: 1
-    m_Recentering:
-      m_enabled: 0
-      m_WaitTime: 0
-      m_RecenteringTime: 0
-      m_LegacyHeadingDefinition: 0
-      m_LegacyVelocityFilterStrength: 0
-  yAxis:
-    Value: 0
-    m_SpeedMode: 0
-    m_MaxSpeed: 120
-    m_AccelTime: 0.1
-    m_DecelTime: 0.1
-    m_InputAxisName: 
-    m_InputAxisValue: 0
-    m_InvertInput: 1
-    m_MinValue: -40
-    m_MaxValue: 40
-    m_Wrap: 0
-    m_Recentering:
-      m_enabled: 0
-      m_WaitTime: 0
-      m_RecenteringTime: 0
-      m_LegacyHeadingDefinition: 0
-      m_LegacyVelocityFilterStrength: 0
-  cameraLookAt: {fileID: 5079401565223795202}
-  inputProvider: {fileID: 4975054468388775085}
 --- !u!114 &4975054468388775085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1189,6 +1139,38 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.8, z: 0}
+--- !u!114 &6621224625062147903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4243186850961492629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2f696b0ce2055c4981740aab6bae9dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xAxis:
+    Value: 0
+    m_SpeedMode: 0
+    m_MaxSpeed: 0
+    m_AccelTime: 0
+    m_DecelTime: 0
+    m_InputAxisName: 
+    m_InputAxisValue: 0
+    m_InvertInput: 0
+    m_MinValue: 0
+    m_MaxValue: 0
+    m_Wrap: 0
+    m_Recentering:
+      m_enabled: 0
+      m_WaitTime: 0
+      m_RecenteringTime: 0
+      m_LegacyHeadingDefinition: 0
+      m_LegacyVelocityFilterStrength: 0
+  cameraLookAt: {fileID: 0}
+  inputProvider: {fileID: 0}
 --- !u!1 &4284554455475061566
 GameObject:
   m_ObjectHideFlags: 0
@@ -1762,14 +1744,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6036455155855972717}
-  m_LocalRotation: {x: 0, y: 0, z: -1, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.416, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9003542279025241340}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 180, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6039567062346202504
 GameObject:
   m_ObjectHideFlags: 0

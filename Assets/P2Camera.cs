@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
-public class CameraController : MonoBehaviour
+public class P2Camera : MonoBehaviour
 {
     [SerializeField]
     private AxisState xAxis;
@@ -30,6 +30,6 @@ public class CameraController : MonoBehaviour
         xAxis.m_InputAxisValue = Mathf.Clamp(xAxis.Value, -1, 1);
         yAxis.m_InputAxisValue = Mathf.Clamp(yAxis.Value, -1, 1);
 
-        cameraLookAt.eulerAngles = new Vector3(yAxis.Value, xAxis.Value, 0);
+        cameraLookAt.eulerAngles = new Vector3(yAxis.Value, xAxis.Value, 180);
     }
 }

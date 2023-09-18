@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
 
     private bool isWalk;
     private bool isAiming;
+    
     // Start is called before the first frame update
     void Start()
     {
