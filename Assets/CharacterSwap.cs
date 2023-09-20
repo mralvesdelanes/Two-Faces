@@ -11,14 +11,13 @@ public class CharacterSwap : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-         if (character == null && possibleCharacters.Count >= 1)
+        if (possibleCharacters.Count > 0)
         {
-            character = possibleCharacters[0];
+            character = possibleCharacters[whichCharacter];
+            character.GetComponent<CharacterController>().enabled = true;
         }
-        Swap();
 
         InputManager.Instance.control.Input.Swap.started += OnSwap;
-        InputManager.Instance.control.Input.Swap.canceled += OnSwap;
     }
 
     // Update is called once per frame
@@ -29,15 +28,20 @@ public class CharacterSwap : MonoBehaviour
 
     private void OnSwap(InputAction.CallbackContext value)
     {
-        if (value.started && whichCharacter == 0)
+        if (value.started)
         {
-            whichCharacter = possibleCharacters.Count - 1;
+            // Desativa o personagem atual
+            character.GetComponent<CharacterController>().enabled = false;
+
+            // Incrementa o índice do personagem para a próxima troca
+            whichCharacter = (whichCharacter + 1) % possibleCharacters.Count;
+
+            // Atualiza o personagem para o novo selecionado
+            character = possibleCharacters[whichCharacter];
+
+            // Ativa o novo personagem
+            character.GetComponent<CharacterController>().enabled = true;
         }
-        if (value.canceled && whichCharacter == possibleCharacters.Count - 1)
-        {
-            whichCharacter -= 1;
-        }
-        Swap();
     }
 
     public void Swap()

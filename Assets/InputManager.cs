@@ -7,8 +7,10 @@ public class InputManager : MonoBehaviour
 {
     public static InputManager Instance;
 
+    public PlayerController playerController;
     public Controls control;
     private InputAction Axis;
+    public CharacterSwap CharacterSwap;
 
 
 

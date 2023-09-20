@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     private CharacterController controller;
     private Animator animator;
     private Transform mCamera;
+    private CharacterSwap characterSwap;
+    
 
     private float moveSpeed;
     [SerializeField]
@@ -31,6 +33,8 @@ public class PlayerController : MonoBehaviour
         mCamera = Camera.main.transform;
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
+        characterSwap = GetComponent<CharacterSwap>();
+
 
         moveSpeed = walkSpeed;
 
@@ -46,6 +50,7 @@ public class PlayerController : MonoBehaviour
     }
     private void MoveCharacter()
     {
+    
         Vector3 moveDirection = transform.TransformDirection(InputManager.Instance.GetAxis());
 
         isWalk = InputManager.Instance.GetAxis().magnitude != 0;
