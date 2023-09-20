@@ -44,6 +44,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Swap"",
+                    ""type"": ""Button"",
+                    ""id"": ""f39fd305-8cdc-448c-a1ec-7d4e25909657"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -134,6 +143,39 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""LeftShoulder"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""246ebb5f-54c6-44fc-b652-50d7f837822d"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Swap"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d8ce7462-c174-4b76-92df-0ebccd7f47ce"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Swap"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ba2d2dd1-a6ff-4f8e-9802-43b2744468a0"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Swap"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -211,6 +253,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Input = asset.FindActionMap("Input", throwIfNotFound: true);
         m_Input_Axis = m_Input.FindAction("Axis", throwIfNotFound: true);
         m_Input_LeftShoulder = m_Input.FindAction("LeftShoulder", throwIfNotFound: true);
+        m_Input_Swap = m_Input.FindAction("Swap", throwIfNotFound: true);
         // Camera
         m_Camera = asset.FindActionMap("Camera", throwIfNotFound: true);
         m_Camera_LookAt = m_Camera.FindAction("LookAt", throwIfNotFound: true);
@@ -277,12 +320,14 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private List<IInputActions> m_InputActionsCallbackInterfaces = new List<IInputActions>();
     private readonly InputAction m_Input_Axis;
     private readonly InputAction m_Input_LeftShoulder;
+    private readonly InputAction m_Input_Swap;
     public struct InputActions
     {
         private @Controls m_Wrapper;
         public InputActions(@Controls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Axis => m_Wrapper.m_Input_Axis;
         public InputAction @LeftShoulder => m_Wrapper.m_Input_LeftShoulder;
+        public InputAction @Swap => m_Wrapper.m_Input_Swap;
         public InputActionMap Get() { return m_Wrapper.m_Input; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -298,6 +343,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @LeftShoulder.started += instance.OnLeftShoulder;
             @LeftShoulder.performed += instance.OnLeftShoulder;
             @LeftShoulder.canceled += instance.OnLeftShoulder;
+            @Swap.started += instance.OnSwap;
+            @Swap.performed += instance.OnSwap;
+            @Swap.canceled += instance.OnSwap;
         }
 
         private void UnregisterCallbacks(IInputActions instance)
@@ -308,6 +356,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @LeftShoulder.started -= instance.OnLeftShoulder;
             @LeftShoulder.performed -= instance.OnLeftShoulder;
             @LeftShoulder.canceled -= instance.OnLeftShoulder;
+            @Swap.started -= instance.OnSwap;
+            @Swap.performed -= instance.OnSwap;
+            @Swap.canceled -= instance.OnSwap;
         }
 
         public void RemoveCallbacks(IInputActions instance)
@@ -393,6 +444,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     {
         void OnAxis(InputAction.CallbackContext context);
         void OnLeftShoulder(InputAction.CallbackContext context);
+        void OnSwap(InputAction.CallbackContext context);
     }
     public interface ICameraActions
     {
