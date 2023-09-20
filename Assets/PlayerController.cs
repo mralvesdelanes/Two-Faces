@@ -9,7 +9,8 @@ public class PlayerController : MonoBehaviour
     private Animator animator;
     private Transform mCamera;
     private CharacterSwap characterSwap;
-    
+
+    private bool isAction;
 
     private float moveSpeed;
     [SerializeField]
@@ -26,7 +27,7 @@ public class PlayerController : MonoBehaviour
 
     private bool isWalk;
     private bool isAiming;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,12 +46,17 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        MoveCharacter();
-        HandleMoveSpeed();
+        if(controller.enabled)
+        {
+            MoveCharacter();
+            HandleMoveSpeed();
+
+        }
     }
-    private void MoveCharacter()
+    private void MoveCharacter() // Move o personagem
     {
-    
+
+
         Vector3 moveDirection = transform.TransformDirection(InputManager.Instance.GetAxis());
 
         isWalk = InputManager.Instance.GetAxis().magnitude != 0;
@@ -68,6 +74,7 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("moveY", InputManager.Instance.GetAxis().z, 0.15f, Time.deltaTime);
 
         animator.SetFloat("running", isRunning, 0.2f, Time.deltaTime);
+
     }
 
     private void HandleMoveSpeed() //Controla a velocidade da movimentação do personagem
@@ -94,6 +101,11 @@ public class PlayerController : MonoBehaviour
         {
             isRunning = 0;
         }
+    }
+
+    public void ActionDone()
+    {
+        isAction = false;
     }
     #endregion
 }

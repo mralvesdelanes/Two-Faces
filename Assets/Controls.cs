@@ -157,17 +157,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""d8ce7462-c174-4b76-92df-0ebccd7f47ce"",
-                    ""path"": ""<Keyboard>/e"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard"",
-                    ""action"": ""Swap"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""ba2d2dd1-a6ff-4f8e-9802-43b2744468a0"",
                     ""path"": ""<Gamepad>/rightShoulder"",
                     ""interactions"": """",
