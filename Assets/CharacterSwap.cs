@@ -19,6 +19,11 @@ public class CharacterSwap : MonoBehaviour
         InputManager.Instance.control.Input.Swap.started += OnSwap;
     }
 
+    private void OnDestroy()
+    {
+        InputManager.Instance.control.Input.Swap.started -= OnSwap;
+    }
+
 
     private void OnSwap(InputAction.CallbackContext value)
     {
@@ -32,16 +37,12 @@ public class CharacterSwap : MonoBehaviour
     public void Swap()
     {
         character.GetComponent<CharacterController>().enabled = false;
-        Animator anim = character.GetComponent<Animator>();
 
         whichCharacter = (whichCharacter + 1) % possibleCharacters.Length;
 
         character = possibleCharacters[whichCharacter];
 
         character.GetComponent<CharacterController>().enabled = true;
-
-
-
 
     }
 }

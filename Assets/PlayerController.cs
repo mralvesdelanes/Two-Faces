@@ -109,10 +109,5 @@ public class PlayerController : MonoBehaviour
             isRunning = 0;
         }
     }
-
-    public void ActionDone()
-    {
-        isAction = false;
-    }
     #endregion
 }
