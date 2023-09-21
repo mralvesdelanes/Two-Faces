@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class CharacterSwap : MonoBehaviour
 {
-   
+
     public Transform character;
     public Transform[] possibleCharacters = new Transform[2];
     public int whichCharacter;
@@ -32,6 +32,7 @@ public class CharacterSwap : MonoBehaviour
     public void Swap()
     {
         character.GetComponent<CharacterController>().enabled = false;
+        Animator anim = character.GetComponent<Animator>();
 
         whichCharacter = (whichCharacter + 1) % possibleCharacters.Length;
 
@@ -40,7 +41,7 @@ public class CharacterSwap : MonoBehaviour
         character.GetComponent<CharacterController>().enabled = true;
 
 
-       
+
 
     }
 }

@@ -52,6 +52,13 @@ public class PlayerController : MonoBehaviour
             HandleMoveSpeed();
 
         }
+        else
+        {
+            animator.SetFloat("moveX", 0, 0.35f, Time.deltaTime);
+            animator.SetFloat("moveY", 0, 0.15f, Time.deltaTime);
+
+            animator.SetFloat("running", 0, 0.2f, Time.deltaTime);
+        }
     }
     private void MoveCharacter() // Move o personagem
     {
