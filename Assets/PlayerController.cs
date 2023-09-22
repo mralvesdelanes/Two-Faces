@@ -7,12 +7,14 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    private CharacterController controller;
     private Animator animator;
+    
     public Camera playerCamera;
-    public CameraController playerCameraController;
+    
+    private CharacterController _controller;
+    private CameraController _playerCameraController;
+    
     public bool isSelected;
-
     private bool isAction;
 
     private float moveSpeed;
@@ -34,8 +36,8 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-        controller = GetComponent<CharacterController>();
+        _playerCameraController = GetComponent<CameraController>();
+        _controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
 
         moveSpeed = walkSpeed;
@@ -73,8 +75,8 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, angle, 0);
         }
 
-        controller.Move(moveDirection * moveSpeed * Time.deltaTime); // movimento
-        controller.Move(Vector3.down * 2 * Time.deltaTime); //gravidade
+        _controller.Move(moveDirection * moveSpeed * Time.deltaTime); // movimento
+        _controller.Move(Vector3.down * 2 * Time.deltaTime); //gravidade
 
         animator.SetFloat("moveX", InputManager.Instance.GetAxis().x, 0.35f, Time.deltaTime);
         animator.SetFloat("moveY", InputManager.Instance.GetAxis().z, 0.15f, Time.deltaTime);
@@ -95,6 +97,10 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void Swap()
+    {
+        isSelected = !isSelected;
+    }
 
     #region INPUT
 
