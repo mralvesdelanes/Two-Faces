@@ -1026,6 +1026,8 @@ GameObject:
   - component: {fileID: 8653200978417483053}
   - component: {fileID: 5017004257195823850}
   - component: {fileID: 5934775104030529422}
+  - component: {fileID: 1226378784046234254}
+  - component: {fileID: 5043184005517879786}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Untagged
@@ -1057,7 +1059,7 @@ Transform:
   - {fileID: 4038725036859859954}
   - {fileID: 5079401565223795202}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &8653200978417483053
 Animator:
@@ -1093,6 +1095,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 0}
+  playerCameraController: {fileID: 1226378784046234254}
   isSelected: 0
   walkSpeed: 3
   runningSpeed: 5
@@ -1122,7 +1125,41 @@ CharacterController:
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.8, z: 0}
+  m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &1226378784046234254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4243186850961492629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d528de9b46efcb54bbb040d7119c3ee2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 5017004257195823850}
+  cameraLookAt: {fileID: 5079401565223795202}
+  isInverse: 1
+  inputProvider: {fileID: 5043184005517879786}
+  rotation: {x: 0, y: 0}
+  speed: 0.1
+--- !u!114 &5043184005517879786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4243186850961492629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb7194dc27b9df64c8beca7482ee8e0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerIndex: -1
+  AutoEnableInputs: 1
+  XYAxis: {fileID: 4257540616308006549, guid: b4695bdc1bcf7054dbd434b8c0bb7dae, type: 3}
+  ZAxis: {fileID: 0}
 --- !u!1 &4284554455475061566
 GameObject:
   m_ObjectHideFlags: 0
