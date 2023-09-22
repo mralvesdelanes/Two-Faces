@@ -11,11 +11,9 @@ public class InputManager : MonoBehaviour
     public Controls control;
     private InputAction Axis;
     public CharacterSwap CharacterSwap;
-
-
-
+    
     // Start is called before the first frame update
-    void Awake()
+    void OnEnable()
     {
         if (Instance != null && Instance != this)
         {

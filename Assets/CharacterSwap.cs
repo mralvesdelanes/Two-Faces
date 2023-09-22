@@ -5,7 +5,6 @@ using UnityEngine.InputSystem;
 
 public class CharacterSwap : MonoBehaviour
 {
-
     public PlayerController playerWhite, playerBlack;
 
     void Start()

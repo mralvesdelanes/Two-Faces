@@ -2035,7 +2035,6 @@ GameObject:
   - component: {fileID: 5196439867727613935}
   - component: {fileID: 8974428528440584907}
   - component: {fileID: 24542847358145461}
-  - component: {fileID: 4475897241099862859}
   - component: {fileID: 8681742122476286106}
   m_Layer: 0
   m_Name: Player1
@@ -2103,26 +2102,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55633e52d9eb90e4cb51c538bb6328b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerCamera: {fileID: 0}
   isSelected: 0
   walkSpeed: 3
   runningSpeed: 5
   rotateSpeed: 150
---- !u!114 &4475897241099862859
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6662508171652207547}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb7194dc27b9df64c8beca7482ee8e0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayerIndex: -1
-  AutoEnableInputs: 1
-  XYAxis: {fileID: 4257540616308006549, guid: b4695bdc1bcf7054dbd434b8c0bb7dae, type: 3}
-  ZAxis: {fileID: 0}
 --- !u!143 &8681742122476286106
 CharacterController:
   m_ObjectHideFlags: 0

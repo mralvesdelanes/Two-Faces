@@ -7,10 +7,10 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-
     private CharacterController controller;
     private Animator animator;
     public Camera playerCamera;
+    public CameraController playerCameraController;
     public bool isSelected;
 
     private bool isAction;
@@ -63,13 +63,11 @@ public class PlayerController : MonoBehaviour
     }
     private void MoveCharacter() // Move o personagem
     {
-
-
         Vector3 moveDirection = transform.TransformDirection(InputManager.Instance.GetAxis());
 
         isWalk = InputManager.Instance.GetAxis().magnitude != 0;
 
-        if (isWalk == true) // conseguir olhar a face do personagem quando está andando
+        if (isWalk == true) // conseguir olhar a face do personagem quando estï¿½ andando
         {
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, playerCamera.transform.eulerAngles.y, ref rotateRefSpeed, smoothRotationSpeed);
             transform.rotation = Quaternion.Euler(0, angle, 0);
@@ -85,7 +83,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private void HandleMoveSpeed() //Controla a velocidade da movimentação do personagem
+    private void HandleMoveSpeed() //Controla a velocidade da movimentaï¿½ï¿½o do personagem
     {
         if (isRunning == 1)
         {
@@ -100,7 +98,7 @@ public class PlayerController : MonoBehaviour
 
     #region INPUT
 
-    private void OnLeftShoulder(InputAction.CallbackContext value) // Diz se o player está andando ou correndo ao apertar Shift
+    private void OnLeftShoulder(InputAction.CallbackContext value) // Diz se o player estï¿½ andando ou correndo ao apertar Shift
     {
         if (value.started)
         {

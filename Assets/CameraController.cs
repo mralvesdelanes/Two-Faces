@@ -1,3 +1,4 @@
+using System;
 using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,43 +9,41 @@ using UnityEngine.TextCore.Text;
 public class CameraController : MonoBehaviour
 {
     public PlayerController playerController;
-    public Vector2 lastRotation;
-
-    [SerializeField]
-    private AxisState xAxis;
-    [SerializeField]
-    private AxisState yAxis;
-
     public Transform cameraLookAt;
-    public CinemachineInputProvider inputProvider;
 
     public bool isInverse;
+    public CinemachineInputProvider inputProvider;
 
-    // Start is called before the first frame update
-    void Start()
+    //Rotação atual do input da camera
+    public Vector2 rotation = new Vector2(0,0);
+
+    public float speed = 5;
+
+    private void OnEnable()
     {
-        xAxis.SetInputAxisProvider(0, inputProvider);
-        yAxis.SetInputAxisProvider(1, inputProvider);
+        UpdateRotation();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (!playerController.isSelected)
-        {
-            xAxis.Value = lastRotation.x;
-            yAxis.Value = lastRotation.y;
             return;
-        }
 
-        xAxis.Update(Time.deltaTime);
-        yAxis.Update(Time.deltaTime);
+        UpdateRotation();
+    }
+    
+    void UpdateRotation()
+    {
+        //O mouse movimentando no eixo X
+        rotation.y += inputProvider.GetAxisValue(0) * speed;
+        
+        //O mouse movimentando no eixo Y
+        rotation.x += (isInverse ? -1 : 1) * inputProvider.GetAxisValue(1) * speed;
+        
+        //Limitando -89 e 89
+        rotation.x = Mathf.Clamp(rotation.x, -89f, 89f);
 
-        xAxis.m_InputAxisValue = Mathf.Clamp(xAxis.Value, -1, 1);
-        yAxis.m_InputAxisValue = Mathf.Clamp(yAxis.Value, -1, 1);
-
-        cameraLookAt.eulerAngles = new Vector3(yAxis.Value, xAxis.Value, isInverse?180:0);
-
-        lastRotation = new Vector2(xAxis.Value, yAxis.Value);
+        //Aplica a rotacao na camera
+        cameraLookAt.eulerAngles = new Vector3(rotation.x, rotation.y, isInverse ? 180:0);
     }
 }
