@@ -2035,7 +2035,6 @@ GameObject:
   - component: {fileID: 5196439867727613935}
   - component: {fileID: 8974428528440584907}
   - component: {fileID: 24542847358145461}
-  - component: {fileID: 3389026811857496646}
   - component: {fileID: 4475897241099862859}
   - component: {fileID: 8681742122476286106}
   m_Layer: 0
@@ -2069,7 +2068,7 @@ Transform:
   - {fileID: 2143624421314750045}
   - {fileID: 3322099096875195441}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &8974428528440584907
 Animator:
@@ -2104,59 +2103,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55633e52d9eb90e4cb51c538bb6328b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSelected: 0
   walkSpeed: 3
   runningSpeed: 5
   rotateSpeed: 150
---- !u!114 &3389026811857496646
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6662508171652207547}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d528de9b46efcb54bbb040d7119c3ee2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  xAxis:
-    Value: 0
-    m_SpeedMode: 0
-    m_MaxSpeed: 200
-    m_AccelTime: 0.1
-    m_DecelTime: 0.1
-    m_InputAxisName: 
-    m_InputAxisValue: 0
-    m_InvertInput: 0
-    m_MinValue: -180
-    m_MaxValue: 180
-    m_Wrap: 1
-    m_Recentering:
-      m_enabled: 0
-      m_WaitTime: 0
-      m_RecenteringTime: 0
-      m_LegacyHeadingDefinition: 0
-      m_LegacyVelocityFilterStrength: 0
-  yAxis:
-    Value: 0
-    m_SpeedMode: 0
-    m_MaxSpeed: 120
-    m_AccelTime: 0.1
-    m_DecelTime: 0.1
-    m_InputAxisName: 
-    m_InputAxisValue: 0
-    m_InvertInput: 1
-    m_MinValue: -40
-    m_MaxValue: 40
-    m_Wrap: 0
-    m_Recentering:
-      m_enabled: 0
-      m_WaitTime: 0
-      m_RecenteringTime: 0
-      m_LegacyHeadingDefinition: 0
-      m_LegacyVelocityFilterStrength: 0
-  cameraLookAt: {fileID: 3322099096875195441}
-  inputProvider: {fileID: 4475897241099862859}
 --- !u!114 &4475897241099862859
 MonoBehaviour:
   m_ObjectHideFlags: 0
