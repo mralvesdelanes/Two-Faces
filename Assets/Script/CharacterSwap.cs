@@ -43,5 +43,6 @@ public class CharacterSwap : MonoBehaviour
             playerWhite.isSelected = true;
         }
 
+        (playerWhite.playerCamera.rect, playerBlack.playerCamera.rect) = (playerBlack.playerCamera.rect, playerWhite.playerCamera.rect);
     }
 }

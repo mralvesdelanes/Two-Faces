@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour
 
         isWalk = InputManager.Instance.GetAxis().magnitude != 0;
 
-        if (isWalk == true) // conseguir olhar a face do personagem quando est� andando
+        if (isWalk == true) // conseguir olhar a face do personagem quando esta andando
         {
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, playerCamera.transform.eulerAngles.y, ref rotateRefSpeed, smoothRotationSpeed);
             transform.rotation = Quaternion.Euler(0, angle, 0);
